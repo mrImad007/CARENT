@@ -1,60 +1,34 @@
+@extends('_header')
+@section('content')
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.2.0/tailwind.min.css'>
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <title>Login</title>
-</head>
-<body>
-
-    {{-- load this flash messge after register succes --}}
-    {{-- <x-flash-message /> --}}
-
-    <section class="w-full bg-gray-900 h-screen flex justify-center items-center ">
-        <div class="w-5/6 h-5/6 grid grid-cols-2 relative">
-
-            <div class="absolute left-4 z-10 top-4">
-                <a href="/"><button class="text-black bg-blue-400 hover:bg-black hover:text-blue-400 hover:border-2 hover:border-blue-400 font-semibold rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 ">Back</button></a>
-            </div>
-
-            <form action="/users/authentification" method="POST" class="bg-black text-white w-full flex justify-center items-center p-4 rounded-l-xl">
-                
-                @csrf
-                
-                <div class="w-5/6 grid gap-4">
-                    <div class="flex flex-col items-center mb-2">
-                        {{-- old is a helper that save data on the value when submiting --}}
-                        <input type="email" name="email" value="{{old('email')}}" id="email" placeholder="email" class=" w-4/6 py-1 px-3 rounded-full shadow-[0_0_5px] shadow-blue-400 bg-transparent focus:outline-none focus:ring focus:ring-blue-400">
-                        
-                        {{-- error directive --}}
-                        @error('email')
-                            <span class="text-red-500 text-xs mt-1">{{$message}}</span>
+<div class="container-fluid px-1 py-5 mx-auto">
+    <div class="row d-flex justify-content-center">
+        <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+            <h3>Log In</h3>
+            <div class="card">
+                <h5 class="text-center mb-4">Enter your credentials</h5>
+                <form class="form-card" method="POST" action="/users/authentification" enctype="multipart/form-data">
+                    @csrf
+                    <div class="row justify-content-center text-left">
+                        {{-- email --}}
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Email<span class="text-danger"> *</span></label> <input type="text" id="email" name="email" value="{{old('email')}}" placeholder="" > </div>
+                        @error('name')
+                        <span class="text-red-500 text-xs mt-1">{{$message}}</span>
                         @enderror
                     </div>
-                    <div class="flex flex-col items-center mb-2">
-                        <input type="password" name="password" id="pwd" placeholder="password" class=" w-4/6 py-1 px-3 rounded-full shadow-[0_0_5px] shadow-blue-400 bg-transparent focus:outline-none focus:ring focus:ring-blue-400">
-                    
-                        {{-- error directive --}}
-                        @error('password')
-                            <span class="text-red-500 text-xs mt-1">{{$message}}</span>
+                    <div class="row justify-content-center text-left">
+                        {{-- password --}}
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Password<span class="text-danger"> *</span></label> <input type="password" name="password" id="pwd" placeholder="password" placeholder="" > </div>
+                        @error('adress')
+                        <span class="text-red-500 text-xs mt-1">{{$message}}</span>
                         @enderror
                     </div>
-                    <div class="flex justify-center">
-                        <button class="text-black border-2 border-black bg-blue-400 hover:bg-black hover:text-blue-400 hover:border-2 hover:border-blue-400 font-semibold rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2 ">Login</button>
+                    <div class="row justify-content-center">
+                        <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Log In</button> </div>
                     </div>
-                </div>
-            </form>
-
-            <div class="hidden relative sm:block">
-                <a href="/register"><div class="font-semibold after:content-[''] after:absolute after:left-0 after:top-1/2 after:-translate-x-1/2 after:z-10 after:-translate-y-1/2 after:w-[80px] after:aspect-square after:bg-blue-400 after:border-2 after:border-black after:rounded-full before:content-['Register'] before:absolute before:top-1/2 before:left-0 before:z-20 before:-translate-y-1/2 before:-translate-x-1/2 hover:text-blue-400 hover:after:bg-black hover:after:border-blue-400 duration-500"></div></a>
-                <img src="{{asset('images/CarentLogo.jpg')}}" alt="" class="h-full w-full rounded-r-xl">
+                </form>
             </div>
         </div>
-    </section>
-
-</body>
-</html>
+    </div>
+</div>
+@endsection

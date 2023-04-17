@@ -1,7 +1,7 @@
 @extends('_header');
 
 @section('content')
-
+<body class="body-wrapper">
 {{-- start content  --}}
 <section class="page-search">
 	<div class="container">

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\pagesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\OffersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,3 +38,11 @@ Route::get('/login', [UsersController::class, 'login'])->name('login')->middlewa
 Route::post('/users/authentification' , [UsersController::class , 'authentification']);
 // log out
 Route::get('/logout', [UsersController::class, 'logout']);
+
+Route::post('/save', [OffersController::class, 'store']);
+
+Route::get('/addOffer', [OffersController::class, 'createform']);
+
+Route::get('/test', function(){
+    return view('lll');
+});

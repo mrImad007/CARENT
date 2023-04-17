@@ -1,7 +1,7 @@
 @extends('_header');
 
 @section('content')
-
+<body class="body-wrapper">
 <!--=================================
 =            Single Blog            =
 ==================================-->

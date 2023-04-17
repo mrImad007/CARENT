@@ -1,5 +1,7 @@
 
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
   <!-- SITE TITTLE -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +11,8 @@
   
   <!-- PLUGINS CSS STYLE -->
   <link href="./plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet">
+  <!-- PLUGINS CSS STYLE Add Form-->
+  <link href="./plugins/bootstrap/dist/css/addForm.css" rel="stylesheet">
   <!-- Bootstrap -->
   <link href="./plugins/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
@@ -26,12 +30,7 @@
   <!-- FAVICON -->
   <link href="./img/favicon.png" rel="shortcut icon">
 
-  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+
 </head>
 
 <body class="body-wrapper">
@@ -48,7 +47,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ml-auto main-nav ">
-                <li class="nav-item active">
+                <li class="nav-item ">
                   <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item ">
@@ -117,7 +116,7 @@
     </div>
   </section>
 
-	@yield('content');
+	  @yield('content');
 
 </body>
 </html>

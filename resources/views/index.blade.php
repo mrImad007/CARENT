@@ -1,11 +1,11 @@
-
-@extends('_header');
-
+@extends('_header')
 @section('content')
 
+	
 <!--===============================
 =            Hero Area            =
 ================================-->
+<x-flash-message />
 
 <section class="hero-area bg-1 text-center overly">
 	<!-- Container Start -->
@@ -440,6 +440,7 @@
 </footer>
 
   <!-- JAVASCRIPTS -->
+  
   <script src="./plugins/jquery/jquery.min.js"></script>
   <script src="./plugins/jquery-ui/jquery-ui.min.js"></script>
   <script src="./plugins/tether/js/tether.min.js"></script>
@@ -453,10 +454,5 @@
   <script src="./plugins/smoothscroll/SmoothScroll.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCC72vZw-6tGqFyRhhg5CkF2fqfILn2Tsw"></script>
   <script src="./js/scripts.js"></script>
-
-{{-- </body>
-
-</html> --}}
-
 
 @endsection

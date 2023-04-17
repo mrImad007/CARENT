@@ -1,6 +1,6 @@
-@extends('_header');
-
+@extends('_header')
 @section('content')
+
 
 <!--==================================
 =            User Profile            =

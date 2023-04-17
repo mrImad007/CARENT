@@ -25,4 +25,9 @@ class pagesController extends Controller
     public function dashboard() {
         return view('dashboard');
     }
+    public function add(){
+        return view('addForm');
+    }
+
+    
 }

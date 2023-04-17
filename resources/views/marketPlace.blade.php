@@ -1,6 +1,8 @@
-@extends('_header');
-
+@extends('_header')
 @section('content')
+
+
+	
 {{-- start content  --}}
 <section class="page-search">
 	<div class="container">

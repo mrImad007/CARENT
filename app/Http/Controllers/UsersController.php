@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class UsersController extends Controller
 {
@@ -21,13 +23,26 @@ class UsersController extends Controller
             'password' => ['required', 'min:6'],
             'adress' => 'required',
             'phone' => 'required',
-            'role' => 'required'
+            'role' => 'required',
+            'image' => 'required '
         ]);
-        // dd($formField);
+
+        $photo = Cloudinary::uploadFile($request->file('image')->getRealPath(),[
+            'folder' => 'UsersPhotos'
+        ])->getSecurePath();
         // hash password
-        $formField['password'] = bcrypt($formField['password']);
+        $encPassword = bcrypt($formField['password']);
         // create user 
-        $user = User::create($formField);
+        $user = User::create([
+            'name' => $request->name,
+            'image' => $photo,
+            'email' => $request->email,
+            'password' => $encPassword,
+            'adress' => $request->adress,
+            'phone' => $request->phone,
+            'role' => $request->role,
+            
+        ]);
         // login
         auth()->login($user);
         return redirect('/')->with('message', 'Registed and logged in, Welcome '.auth()->user()->name);
