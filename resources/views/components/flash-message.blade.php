@@ -1,7 +1,15 @@
 @if (session()->has('message'))
-    <div x-data="{show: true}" x-init="setTimeout(() => show = false , 3000)" x-show="show" class="fixed z-20 top-0 left-1/2 -translate-x-1/2 transform bg-blue-400 text-black font-semibold px-48 py-3 rounded-b-xl">
-        <p>
-            {{session('message')}}
-        </p>
-    </div>
+   <div class="alert alert-primary fixed-top" role="alert" style="left: 25%; right: 25%;">
+    <p style="text-align: center; font-size: 1.2em; font-weight: bold;">
+      {{session('message')}}
+    </p>
+  </div>
+  
+  <script>
+    // hide the alert after 2 seconds
+    setTimeout(() => {
+      document.querySelector('.alert').style.display = 'none';
+    }, 3000);
+  </script>
+
 @endif

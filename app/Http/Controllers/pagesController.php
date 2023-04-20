@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
+use App\Models\offers;
+use App\Models\typeoffer;
 use Illuminate\Http\Request;
 
 class pagesController extends Controller
@@ -15,16 +18,33 @@ class pagesController extends Controller
     }
 
     public function market() {
-        return view('marketPlace');
+        $offers = offers::all();
+        $type = typeoffer::all();
+        return view('marketPlace', [
+            'offers' => $offers,
+            'types' => $type,
+        ]);
     }
 
     public function cart() {
-        return view('dashboard');
+        $user = User::find(auth()->user()->id);
+        $offers = $user->offers;
+        
+            return view('cart', [
+            'offers' => $offers
+        ]);
+        
+        
     }
 
     public function dashboard() {
-        return view('dashboard');
+        $user = User::find(auth()->user()->id);
+        $offers = $user->offers;
+        return view('dashboard' , [
+            'offers' => $offers
+        ]);
     }
+    
     public function add(){
         return view('addForm');
     }

@@ -23,9 +23,7 @@ Route::get('/',[pagesController::class, 'index']);
 // marketplace page 
 Route::get('/market',[pagesController::class, 'market']);
 // user Cart
-Route::get('/cart',[pagesController::class, 'cart']);
-// admin dashboard 
-Route::get('/dashboard',[pagesController::class, 'dashboard']);
+Route::get('/cart',[pagesController::class, 'cart'])->middleware(['auth']);
 // blog page 
 Route::get('/blog', [pagesController::class, 'blog']);
 // register form
@@ -41,8 +39,14 @@ Route::get('/logout', [UsersController::class, 'logout']);
 
 Route::post('/save', [OffersController::class, 'store']);
 
-Route::get('/addOffer', [OffersController::class, 'createform']);
+Route::get('/remove/{id}', [OffersController::class, 'DeleteOffer']);
 
-Route::get('/test', function(){
-    return view('lll');
-});
+Route::get('/search', [OffersController::class, 'search']);
+
+Route::get('/category-search', [OffersController::class, 'categorySearch']);
+
+Route::get('/edit-profile', [UsersController::class, 'editProfile']);
+
+Route::post('/saveEdit/{user}', [UsersController::class, 'saveEditProfile']);
+
+Route::get('/offertype-search', [OffersController::class, 'offerTypeSearch']);

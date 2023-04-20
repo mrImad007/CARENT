@@ -65,6 +65,41 @@ class UsersController extends Controller
         return back()->withErrors(['email' => 'User not found, try again'])->onlyInput('email');
     }
 
+    public function editProfile(){
+        return view('user-profile');
+    }
+
+    public function saveEditProfile(Request $request, User $user){
+        $formField = $request->validate([
+            'name' => '',
+            'email' => '',
+            'password' => '',
+            'adress' => '',
+            'phone' => '',
+        ]);
+        
+        $formField = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'adress' => $request->adress,
+            'phone' => $request->phone,
+        ];
+
+       
+
+        if($request->hasFile('image')){
+            $uploadImage = Cloudinary::uploadFile($request->file('image')->getRealPath(),[
+                'folder' => 'Playlist image'
+            ])->getSecurePath();
+            $formField['image'] = $uploadImage;
+        }
+//         dd($user);
+//  dd($formField);
+        $user->update($formField);
+
+        return redirect('/edit-profile')->with('message', 'user informations updated');
+    }
+
     public function logout(Request $request) {
         auth()->logout();
         $request->session()->invalidate();

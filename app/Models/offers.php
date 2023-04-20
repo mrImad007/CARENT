@@ -23,4 +23,14 @@ class offers extends Model
         'car_category' ,
         'typeoffer_id' ,
     ];
+
+    public function typeOffer()
+    {
+        return $this->belongsTo(TypeOffer::class, 'typeoffers_id');
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

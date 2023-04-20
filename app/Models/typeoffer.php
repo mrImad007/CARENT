@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class typeoffer extends Model
 {
     use HasFactory;
+
+    public function offers()
+    {
+        return $this->hasMany(Offer::class, 'typeoffers_id');
+    }
 }

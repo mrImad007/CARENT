@@ -1,4 +1,4 @@
-@extends('_header')
+@extends('partials._header')
 @section('content')
 
 <div class="container-fluid px-1 py-5 mx-auto">
@@ -28,7 +28,7 @@
                         <span class="text-red-500 text-xs mt-1">{{$message}}</span>
                         @enderror
                         {{-- doors --}}
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Doors number<span class="text-danger"> *</span></label> <input type="text" id="car_doors" name="car_doors" placeholder="" > </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Doors number<span class="text-danger"> *</span></label> <input type="number" id="car_doors" name="car_doors" placeholder="" > </div>
                         @error('phone')
                         <span class="text-red-500 text-xs mt-1">{{$message}}</span>
                         @enderror
@@ -52,7 +52,7 @@
                             @enderror
                         </div>
                         {{-- password --}}
-                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Power<span class="text-danger"> *</span></label> <input type="text" id="car_power" name="car_power" placeholder="" > </div>
+                        <div class="form-group col-sm-6 flex-column d-flex"> <label class="form-control-label px-3">Power<span class="text-danger"> *</span></label> <input type="number" id="car_power" name="car_power" placeholder="" > </div>
                         @error('car_power')
                             <span class="text-red-500 text-xs mt-1">{{$message}}</span>
                         @enderror

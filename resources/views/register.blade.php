@@ -1,4 +1,4 @@
-@extends('_header')
+@extends('partials._header')
 @section('content')
 
 <div class="container-fluid px-1 py-5 mx-auto">
