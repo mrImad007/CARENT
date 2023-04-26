@@ -29,10 +29,10 @@
 						<ul>
 							<li class="active" ><a href=""><i class="fa fa-user"></i> My offers</a></li>
 							<li><a href="/addOffer"><i class="fa fa-bookmark-o"></i> Add Offer</a></li>
-							<li><a href=""><i class="fa fa-file-archive-o"></i>Confirmed Offers <span>12</span></a></li>
-							<li><a href=""><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a></li>
-							<li><a href=""><i class="fa fa-cog"></i> Logout</a></li>
-							<li><a href=""><i class="fa fa-power-off"></i>Delete Account</a></li>
+							<li><a href="/confirmedOffers"><i class="fa fa-file-archive-o"></i>Confirmed Offers <span>12</span></a></li>
+							<li><a href="/pendingOffers"><i class="fa fa-bolt"></i> Pending Approval<span>23</span></a></li>
+							<li><a href="/logout"><i class="fa fa-cog"></i> Logout</a></li>
+							<li><a href="{{url('/deleteUser?id='.auth()->user()->id)}}"><i class="fa fa-power-off"></i>Delete Account</a></li>
 						</ul>
 					</div>
 				</div>
@@ -45,7 +45,7 @@
 						<thead>
 							<tr>
 								<th>Image</th>
-								<th>Product Details</th>
+								<th class="text-center">Product Details</th>
 								<th class="text-center">Type</th>
 								<th class="text-center">Action</th>
 							</tr>
@@ -55,27 +55,22 @@
 						@foreach ($offers as $offer)
 							<tr>
 								<td class="product-thumb">
-									<img width="120px" height="auto" src="{{$offer->car_image}}" alt="image description"></td>
-								<td class="product-details">
+									<img width="120px" height="auto" src="{{$offer->car_image}}" alt="image description">
+								</td>
+								<td class="product-details" style="padding: 50px">
 									<h3 class="title">{{$offer->car_model}}</h3>
 									<span class="add-id"><strong>Make</strong> {{$offer->car_make}}</span>
 									<span class="add-id"><strong>Engine</strong> {{$offer->car_engine}}</span>
 									<span class="add-id"><strong>Power</strong> {{$offer->car_power}} HP</span>
-									{{-- <span class="status active"><strong>Status</strong>Active</span> --}}
 									<span class="location"><strong>Category</strong>{{$offer->car_category}}</span>
                   					<span class="location"><strong>Price</strong>${{$offer->car_price}}</span>
 								</td>
-								<td class="product-category"><span class="categories">{{$offer->typeoffer->name}}</span></td>
+								<td class="product-category"><span class="categories">{{$offer->name}}</span></td>
 								<td class="action" data-title="Action">
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
-												<a data-toggle="tooltip" data-placement="top" title="Tooltip on top" class="view" href="">
-													<i class="fa fa-eye"></i>
-												</a>		
-											</li>
-											<li class="list-inline-item">
-												<a class="edit" href="">
+												<a class="edit" href="{{url('/editOffer?id='.$offer->id)}}">
 													<i class="fa fa-pencil"></i>
 												</a>		
 											</li>

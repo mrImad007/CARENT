@@ -1,12 +1,8 @@
 @extends('partials._header')
 @section('content')
 
-	
-<!--===============================
-=            Hero Area            =
-================================-->
-<x-flash-message />
-
+<x-flash-message />	
+{{-- start content  --}}
 <section class="hero-area bg-1 text-center overly">
 	<!-- Container Start -->
 	<div class="container">

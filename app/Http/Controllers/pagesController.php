@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Models\offers;
 use App\Models\typeoffer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class pagesController extends Controller
 {
@@ -26,23 +27,44 @@ class pagesController extends Controller
         ]);
     }
 
-    public function cart() {
-        $user = User::find(auth()->user()->id);
-        $offers = $user->offers;
-        
+    public function cart(){
+
+        $id = auth()->user()->id;
+
+        $commands   =   DB::table('commands')
+                        ->join('offers','commands.offer_id','=', 'offers.id')
+                        ->where('commands.user_id','=',$id)
+                        ->where('commands.status','=','Pending')
+                        ->get();
+
+        if(count($commands)>0){
             return view('cart', [
-            'offers' => $offers
-        ]);
-        
-        
+            'offers' => $commands
+        ]); 
+        }else{
+            return back()->with('message','Your cart is still empty');
+        }
+               
     }
 
-    public function dashboard() {
-        $user = User::find(auth()->user()->id);
-        $offers = $user->offers;
-        return view('dashboard' , [
-            'offers' => $offers
-        ]);
+    public function Confirmedcart(){
+
+        $id = auth()->user()->id;
+
+        $commands   =   DB::table('commands')
+                        ->join('offers','commands.offer_id','=', 'offers.id')
+                        ->where('commands.user_id','=',$id)
+                        ->where('commands.status','=','accepted')
+                        ->get();
+                        // dd($commands);
+
+        if(count($commands)>0){
+            return view('cart-confirmed', [
+            'offers' => $commands
+        ]); 
+        }else{
+            return back()->with('message','Your No confirmed orders');
+        }
     }
     
     public function add(){

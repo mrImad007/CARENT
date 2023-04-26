@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\command;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class offers extends Model
 {
@@ -32,5 +33,10 @@ class offers extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function commands()
+    {
+        return $this->belongsTo(command::class,'offer_id','id');
     }
 }

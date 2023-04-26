@@ -118,7 +118,7 @@
     </div>
   </section>
 
-	  @yield('content');
+	  @yield('content')
 
     @extends('partials._footer')
 </body>

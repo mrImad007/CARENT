@@ -31,7 +31,7 @@
 				<!-- Edit Personal Info -->
 				<div class="widget personal-info">
 					<h3 class="widget-header user">Edit Personal Information</h3>
-					<form action="/saveEdit/{{auth()->user()->id}}" method="POST">
+					<form action="/saveEdit/{{auth()->user()->id}}" method="POST" enctype="multipart/form-data">
 						@csrf
 						<!-- First Name -->
 						<div class="form-group">

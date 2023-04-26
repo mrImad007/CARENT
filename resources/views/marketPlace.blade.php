@@ -63,42 +63,32 @@
 					<div class="row mt-30">
 						{{-- loop start  --}}
 						@foreach ($offers as $offer)
+						<a href="{{url('/singleOffer?id='.$offer->id)}}">
 						<div class="col-sm-12 col-lg-4 col-md-6">
 							<!-- product card -->
 								<div class="product-item bg-light">
 									<div class="card">
 										<div class="thumb-content">
-											<a href="">
 												<img class="card-img-top img-fluid" src="{{$offer->car_image}}" alt="Card image cap" style="height: 100px">
-											</a>
 										</div>
 										<div class="card-body">
-											<h4 class="card-title"><a href="">{{$offer->car_make}} - {{$offer->car_model}}</a></h4>
+											<h4 class="card-title"><a href="{{url('/singleOffer?id='.$offer->id)}}">{{$offer->car_make}} - {{$offer->car_model}}</a></h4>
 											<ul class="list-inline product-meta">
 												<li class="list-inline-item">
-													<a href=""><i class="fa fa-car" aria-hidden="true"></i>Motorisation : {{$offer->car_engine}}</a>
+													<a href="{{url('/singleOffer?id='.$offer->id)}}"><i class="fa fa-car" aria-hidden="true"></i>Motorisation : {{$offer->car_engine}}</a>
 												</li>
 												<li class="list-inline-item">
-													<a href=""><i class="fa fa-car" aria-hidden="true"></i>Power : {{$offer->car_power}} HP</a>
+													<a href="{{url('/singleOffer?id='.$offer->id)}}"><i class="fa fa-car" aria-hidden="true"></i>Power : {{$offer->car_power}} HP</a>
 												</li>
 												<li class="list-inline-item">
-													<a href=""><i class="fa fa-calendar"></i>Production Year :      {{$offer->car_production_year}}</a>
+													<a href="{{url('/singleOffer?id='.$offer->id)}}"><i class="fa fa-calendar"></i>Production Year :      {{$offer->car_production_year}}</a>
 												</li>
 											</ul>
-											<p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo, aliquam!</p>
-											<div class="product-ratings">
-												<ul class="list-inline">
-													<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-													<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-													<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-													<li class="list-inline-item selected"><i class="fa fa-star"></i></li>
-													<li class="list-inline-item"><i class="fa fa-star"></i></li>
-												</ul>
-											</div>
-										</div>
+										</div></a>
 									</div>
 								</div>
 						</div>
+					</a>
 						@endforeach
 						{{-- loop end  --}}
 						
@@ -107,7 +97,7 @@
 						<div class="col-sm-12 col-lg-4 col-md-6">
 							<!-- product card -->
 				</div>
-				<div class="pagination justify-content-center">
+				{{-- <div class="pagination justify-content-center">
 					<nav aria-label="Page navigation example">
 						<ul class="pagination">
 							<li class="page-item">
@@ -127,7 +117,7 @@
 							</li>
 						</ul>
 					</nav>
-				</div>
+				</div> --}}
 			</div>
 		</div>
 	</div>

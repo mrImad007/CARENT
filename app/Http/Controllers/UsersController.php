@@ -89,12 +89,10 @@ class UsersController extends Controller
 
         if($request->hasFile('image')){
             $uploadImage = Cloudinary::uploadFile($request->file('image')->getRealPath(),[
-                'folder' => 'Playlist image'
+                'folder' => 'UsersPhotos'
             ])->getSecurePath();
             $formField['image'] = $uploadImage;
         }
-//         dd($user);
-//  dd($formField);
         $user->update($formField);
 
         return redirect('/edit-profile')->with('message', 'user informations updated');
@@ -105,5 +103,9 @@ class UsersController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect('/');
+    }
+
+    public function deleteAccount(){
+        
     }
 }
