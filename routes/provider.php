@@ -18,7 +18,7 @@ use App\Http\Controllers\commandController;
 */
 
 ////////////////// Providers \\\\\\\\\\\\\\\\\\\\\\
-Route::middleware(['auth', 'isAdmin'])->group(function () {
+Route::middleware(['auth', 'isAdmin'])->group(function () { 
 //provider dashboard
 Route::get('/dashboard',[OffersController::class, 'dashboard']);
 //create offer form
@@ -41,4 +41,4 @@ Route::get('/DeclineOffer', [commandController::class, 'DeclineOffer']);
 //show confirmed offers
 Route::get('/pendingOffers', [OffersController::class, 'pendingOffers']);
 });
-Route::get('/singleOffer', [OffersController::class, 'SingleOffer']);
+

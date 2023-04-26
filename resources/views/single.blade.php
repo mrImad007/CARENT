@@ -82,7 +82,7 @@
 						<img class="rounded-circle" src="{{$offer->image}}" alt="" style="width: 100%; margin-bottom:15px">
 						<h4><a href="">{{$offer->name}}</a></h4>
 						<p class="member-time">Member since {{$offer->created_at}}</p>
-						<p>Phone : {{auth()->user()->phone}}</p>
+						<p>Phone : {{$offer->phone}}</p>
 						<ul class="list-inline mt-20">
 							<li class="list-inline-item">
 								{{-- <form action="{{ url('/order?id='$id) }}" method="GET"> --}}

@@ -6,6 +6,7 @@ use App\Models\offers;
 use App\Models\command;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class commandController extends Controller
 {
@@ -33,8 +34,18 @@ class commandController extends Controller
             'ending' => $request->ending,
             'starting' => $request->starting,
         ];
+        
+        if($formField['ending'] >= $formField['starting']){
 
-        if($formField['ending'] > $formField['starting']){
+            $start_date = Carbon::createFromFormat('Y-m-d', $request->starting);
+            $end_date = Carbon::createFromFormat('Y-m-d', $request->ending);
+            $number_of_days = $end_date->diffInDays($start_date);
+
+            if($number_of_days == 0){
+                $formField['total_rent'] = $request->price;
+            }else{
+                $formField['total_rent'] = $number_of_days * $request->price;
+            }
             command::create($formField);
             return redirect('/cart')->with('message', 'Waiting for providers confirmation');
         }else{

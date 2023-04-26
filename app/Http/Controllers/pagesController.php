@@ -73,5 +73,9 @@ class pagesController extends Controller
         return view('addForm');
     }
 
+    public function SuperDashboard(){
+        return view('super-dashboard');
+    }
+
     
 }

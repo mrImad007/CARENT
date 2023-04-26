@@ -40,7 +40,64 @@
 			<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
 				<!-- Recently Favorited -->
 				<div class="widget dashboard-container my-adslist">
-					<h3 class="widget-header">My offers</h3>
+					<h3 class="widget-header">Selling Offers</h3>
+					@if (count($offers)>0)
+						<table class="table table-responsive product-dashboard-table">
+							<thead>
+								<tr>
+									<th>Image</th>
+									<th class="text-center">Product Details</th>
+									<th class="text-center">Type</th>
+									<th class="text-center">Action</th>
+								</tr>
+							</thead>
+							<tbody>
+								{{-- start the loop  --}}
+							@foreach ($offers as $offer)
+								<tr>
+									<td class="product-thumb">
+										<img width="120px" height="auto" src="{{$offer->car_image}}" alt="image description">
+									</td>
+									<td class="product-details" style="padding: 50px">
+										<h3 class="title">{{$offer->car_model}}</h3>
+										<span class="add-id"><strong>Make</strong> {{$offer->car_make}}</span>
+										<span class="add-id"><strong>Engine</strong> {{$offer->car_engine}}</span>
+										<span class="add-id"><strong>Power</strong> {{$offer->car_power}} HP {{$offer->id}}</span>
+										<span class="location"><strong>Category</strong>{{$offer->car_category}}</span>
+										<span class="location"><strong>Price</strong>${{$offer->car_price}}</span>
+										<span class="status active"><strong>Status</strong>Pending</span>
+									</td>
+									<td class="product-category"><span class="categories">{{$offer->name}}</span></td>
+									<td class="action" data-title="Action">
+										<div class="">
+											<ul class="list-inline justify-content-center">
+												<li class="list-inline-item">
+													<a class="edit" href="{{url('/ConfirmOffer?id='.$offer->offer_id)}}">
+														<i class="fa fa-check" aria-hidden="true"></i>
+													</a>		
+												</li>
+												<li class="list-inline-item">
+													<a class="delete" href="{{url('/DeclineOffer?id='.$offer->offer_id)}}">
+														<i class="fa fa-trash"></i>
+													</a>
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							@endforeach
+							{{-- end the loop  --}}
+							</tbody>
+						</table>
+					@else
+						<h3 class="text-center">There are no orders yet</h3>	
+					@endif
+					
+				</div>
+					{{-- rent offers --}}
+				<div class="widget dashboard-container my-adslist">
+					<h3 class="widget-header">Rental Offers</h3>
+					@if (count($rents)>0)
 					<table class="table table-responsive product-dashboard-table">
 						<thead>
 							<tr>
@@ -52,31 +109,31 @@
 						</thead>
 						<tbody>
 							{{-- start the loop  --}}
-						@foreach ($offers as $offer)
+						@foreach ($rents as $rent)
 							<tr>
 								<td class="product-thumb">
-									<img width="120px" height="auto" src="{{$offer->car_image}}" alt="image description">
+									<img width="120px" height="auto" src="{{$rent->car_image}}" alt="image description">
 								</td>
 								<td class="product-details" style="padding: 50px">
-									<h3 class="title">{{$offer->car_model}}</h3>
-									<span class="add-id"><strong>Make</strong> {{$offer->car_make}}</span>
-									<span class="add-id"><strong>Engine</strong> {{$offer->car_engine}}</span>
-									<span class="add-id"><strong>Power</strong> {{$offer->car_power}} HP {{$offer->id}}</span>
-									<span class="location"><strong>Category</strong>{{$offer->car_category}}</span>
-                  					<span class="location"><strong>Price</strong>${{$offer->car_price}}</span>
+									<h3 class="title">{{$rent->car_model}}</h3>
+									<span class="add-id"><strong>Make</strong> {{$rent->car_make}}</span>
+									<span class="add-id"><strong>Engine</strong> {{$rent->car_engine}}</span>
+									<span class="add-id"><strong>Power</strong> {{$rent->car_power}} HP {{$rent->id}}</span>
+									<span class="location"><strong>Category</strong>{{$rent->car_category}}</span>
+                  					<span class="location"><strong>Price</strong>${{$rent->car_price}}</span>
                                     <span class="status active"><strong>Status</strong>Pending</span>
 								</td>
-								<td class="product-category"><span class="categories">{{$offer->name}}</span></td>
+								<td class="product-category"><span class="categories">{{$rent->name}}</span></td>
 								<td class="action" data-title="Action">
 									<div class="">
 										<ul class="list-inline justify-content-center">
 											<li class="list-inline-item">
-												<a class="edit" href="{{url('/ConfirmOffer?id='.$offer->offer_id)}}">
+												<a class="edit" href="{{url('/ConfirmOffer?id='.$rent->offer_id)}}">
 													<i class="fa fa-check" aria-hidden="true"></i>
 												</a>		
 											</li>
 											<li class="list-inline-item">
-												<a class="delete" href="{{url('/DeclineOffer?id='.$offer->offer_id)}}">
+												<a class="delete" href="{{url('/DeclineOffer?id='.$rent->offer_id)}}">
 													<i class="fa fa-trash"></i>
 												</a>
 											</li>
@@ -88,7 +145,10 @@
 						{{-- end the loop  --}}
 						</tbody>
 					</table>
-					
+					@else
+					<h3 class="text-center">There are no orders yet</h3>	
+					@endif
+
 				</div>
 			</div>
 		</div>

@@ -14,7 +14,8 @@ class command extends Model
         'offer_id',
         'user_id',
         'starting',
-        'ending'
+        'ending',
+        'total_rent'
     ];
 
     public function offers()

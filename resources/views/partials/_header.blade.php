@@ -61,7 +61,7 @@
                     <a class="nav-link" href="/dashboard">Dashboard</a>
                     @endif
                   @endauth
-                  @if (!auth()->user() || auth()->user()->role !== 1)
+                  @if (!auth()->user() || auth()->user()->role == 0)
                     <a class="nav-link" href="/cart">Cart</a>
                   @endif
                   

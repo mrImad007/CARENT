@@ -28,7 +28,7 @@
 					<div class="widget user-dashboard-menu">
 						<ul>
 							<li><a href="/cart"><i class="fa fa-user"></i> My Pending offers</a></li>
-							<li class="active"><a href="/UserConfirmed"><i class="fa fa-bolt"></i>My Confirmed offers (History) <span>23</span></a></li>
+							<li class="active"><a href="/UserConfirmed"><i class="fa fa-bolt"></i>My Confirmed offers (History) </a></li>
 							<li><a href="/logout"><i class="fa fa-cog"></i> Logout</a></li>
 							<li><a href="/deleteAccount"><i class="fa fa-power-off"></i>Delete Account</a></li>
 						</ul>
@@ -57,8 +57,10 @@
 									<h3 class="title">{{$offer->car_model}}</h3>
 									<span class="add-id"><strong>Make</strong> {{$offer->car_make}}</span>
 									<span class="add-id"><strong>Engine</strong> {{$offer->car_engine}}</span>
-									<span class="add-id"><strong>Power</strong> {{$offer->car_power}}</span>
+									<span class="add-id"><strong>Power</strong> {{$offer->car_power}} HP</span>
 									<span class="location"><strong>Category</strong>{{$offer->car_category}}</span>
+									<span class="location"><strong>Price</strong>${{$offer->car_price}}</span>
+									<span class="status active"><strong>Status</strong>Accepted</span>
                                 </td>
 							</tr>
 						@endforeach

@@ -63,10 +63,21 @@ class OffersController extends Controller
                 ->join('typeoffers','typeoffers.id','=','offers.typeoffers_id')
                 ->where('offers.user_id', $id)
                 ->where('commands.status', 'Pending')
+                ->where('offers.typeoffers_id','=','1')
                 ->get();
 
+        $rents = DB::table('offers')
+                ->join('commands', 'commands.offer_id', '=', 'offers.id')
+                ->join('typeoffers','typeoffers.id','=','offers.typeoffers_id')
+                ->where('offers.user_id', $id)
+                ->where('commands.status', 'Pending')
+                ->where('offers.typeoffers_id','=','2')
+                ->get();
+
+
         return view('dashboard-pending' , [
-            'offers' => $offers
+            'offers' => $offers,
+            'rents' => $rents
         ]);
     }
 

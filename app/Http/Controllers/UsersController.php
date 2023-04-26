@@ -59,8 +59,15 @@ class UsersController extends Controller
             'password' => ['required', 'min:6']
         ]);
         if (auth()->attempt($formField)) {
+            
             $request->session()->regenerate();
-            return redirect()->intended('/')->with('message', 'Hello ' . auth()->user()->name);
+
+            if(auth()->user()->role == 2){
+                return redirect()->intended('/superDash')->with('message', auth()->user()->name.' the superMan is here');
+            }else{
+                
+                return redirect()->intended('/')->with('message', 'Hello ' . auth()->user()->name);
+            }
         }
         return back()->withErrors(['email' => 'User not found, try again'])->onlyInput('email');
     }

@@ -38,7 +38,8 @@
 			<div class="col-md-10 offset-md-1 col-lg-8 offset-lg-0">
 				<!-- Recently Favorited -->
 				<div class="widget dashboard-container my-adslist">
-					<h3 class="widget-header ">My Pending offers</h3>
+					<h3 class="widget-header ">My Pending orders</h3>
+					@if (count($offers)>0)
 					<table class="table table-responsive product-dashboard-table">
 						<thead>
 							<tr>
@@ -76,7 +77,9 @@
 						{{-- end the loop  --}}
 						</tbody>
 					</table>
-					
+					@else
+					<h3 class="text-center">You don't any orders yet</h3>
+					@endif
 				</div>
 			</div>
 		</div>
