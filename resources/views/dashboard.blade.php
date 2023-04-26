@@ -41,6 +41,7 @@
 				<!-- Recently Favorited -->
 				<div class="widget dashboard-container my-adslist">
 					<h3 class="widget-header">My offers</h3>
+					@if (count($offers)>0)
 					<table class="table table-responsive product-dashboard-table">
 						<thead>
 							<tr>
@@ -87,7 +88,9 @@
 						{{-- end the loop  --}}
 						</tbody>
 					</table>
-					
+					@else
+					<h3 class="text-center">you haven't posted any offers yet</h3>
+					@endif
 				</div>
 			</div>
 		</div>

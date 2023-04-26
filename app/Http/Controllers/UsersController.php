@@ -113,6 +113,9 @@ class UsersController extends Controller
     }
 
     public function deleteAccount(){
-        
+        $id = request()->query('id');
+        $user = User::find($id);
+        $user->delete();
+        return redirect('/')->with('message', 'Account deleted');
     }
 }

@@ -55,7 +55,9 @@ Route::middleware(['auth'])->group(function () {
     //order a car
     Route::get('/DeclineOfferCart', [commandController::class, 'DeclineOfferCart']);
     //single offer page
-    Route::get('/singleOffer', [OffersController::class, 'SingleOffer']);   
+    Route::get('/singleOffer', [OffersController::class, 'SingleOffer']);  
+    // delete account 
+    Route::get('/deleteUser', [UsersController::class, 'deleteAccount']);
 });
 
 
