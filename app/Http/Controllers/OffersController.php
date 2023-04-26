@@ -27,9 +27,10 @@ class OffersController extends Controller
         
         $offers = DB::table('offers')
                 ->join('typeoffers','typeoffers.id','=','offers.typeoffers_id')
-                ->select('offers.*','typeoffers.*')
+                ->select('offers.*','typeoffers.*','offers.id')
                 ->where('offers.user_id', $id)
                 ->get();
+                // dd($offers);
 
         return view('dashboard' , [
             'offers' => $offers

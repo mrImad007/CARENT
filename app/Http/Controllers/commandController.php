@@ -23,6 +23,26 @@ class commandController extends Controller
         return redirect('/cart')->with('message', 'Waiting for providers confirmation');
     }
 
+    public function createRentCommand(Request $request){
+
+        // $id  = request()->query('id');
+
+        $formField = [
+            'offer_id' => $request->id,
+            'user_id' => auth()->user()->id,
+            'ending' => $request->ending,
+            'starting' => $request->starting,
+        ];
+
+        if($formField['ending'] > $formField['starting']){
+            command::create($formField);
+            return redirect('/cart')->with('message', 'Waiting for providers confirmation');
+        }else{
+            return back()->with('message', 'check the dates');
+        }
+       
+    }
+
     public function ConfirmOffer(){
 
         $id = request()->query('id');
@@ -52,7 +72,7 @@ class commandController extends Controller
         $offer = command::where('offer_id','=',$id);
         $offer->delete();
 
-        return redirect('/market')->with('message', 'Offer Declined');
+        return redirect('/market')->with('message', 'Offer Canceled');
     }
 
     

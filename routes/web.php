@@ -44,8 +44,10 @@ Route::get('/logout', [UsersController::class, 'logout']);
 Route::get('/edit-profile', [UsersController::class, 'editProfile']);
 // save profile edition
 Route::post('/saveEdit/{user}', [UsersController::class, 'saveEditProfile']);
-//order a car
+//order a selling offer
 Route::get('/order', [commandController::class, 'createCommand']);
+//order a rental offer
+Route::get('/orderRent', [commandController::class, 'createRentCommand']);
 //order a car
 Route::get('/DeclineOfferCart', [commandController::class, 'DeclineOfferCart']);
 

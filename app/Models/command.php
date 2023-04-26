@@ -12,7 +12,9 @@ class command extends Model
 
     protected $fillable = [
         'offer_id',
-        'user_id'
+        'user_id',
+        'starting',
+        'ending'
     ];
 
     public function offers()

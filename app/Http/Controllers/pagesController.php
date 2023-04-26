@@ -42,7 +42,10 @@ class pagesController extends Controller
             'offers' => $commands
         ]); 
         }else{
-            return back()->with('message','Your cart is still empty');
+            return view('cart', [
+                'offers' => $commands
+            ])->with('message','Your cart is still empty');
+           
         }
                
     }
@@ -56,14 +59,13 @@ class pagesController extends Controller
                         ->where('commands.user_id','=',$id)
                         ->where('commands.status','=','accepted')
                         ->get();
-                        // dd($commands);
 
         if(count($commands)>0){
             return view('cart-confirmed', [
             'offers' => $commands
         ]); 
         }else{
-            return back()->with('message','Your No confirmed orders');
+            return back()->with('message','You have No confirmed orders');
         }
     }
     

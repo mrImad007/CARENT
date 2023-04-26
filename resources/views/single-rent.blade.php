@@ -75,7 +75,7 @@
 				<div class="sidebar">
 					<div class="widget price text-center">
 						<h4>Price</h4>
-						<p>${{$offer->car_price}}</p>
+						<p>${{$offer->car_price}}/Day</p>
 					</div>
 					<!-- User Profile widget -->
 					<div class="widget user">
@@ -85,11 +85,13 @@
 						<p>Phone : {{auth()->user()->phone}}</p>
 						<ul class="list-inline mt-20">
 							<li class="list-inline-item">
-								<form action="/odder" method="GET">
+								<form action="/orderRent" method="GET">
 									{{-- @csrf --}}
-									<input type="hidden" name="command_id" value="{{$id}}">
+									<input type="hidden" name="id" value="{{$id}}">
 									<input type="hidden" name="user_id" value="{{auth()->user()->id}}">
-									<button class="btn btn-main-sm">Order This Car id {{$id}}</button>
+									<input type="date" name="starting" id="">
+									<input type="date" name="ending" id="">
+									<button class="btn btn-main-sm">Rent this Car</button>
 								</form>
 								{{-- <a href="{{ url('/order?id='.$id) }}" class="btn btn-main-sm"> Order this car</a> --}}
 							</li>
