@@ -64,6 +64,7 @@
 									<span class="add-id"><strong>Power</strong> {{$offer->car_power}} HP</span>
 									<span class="location"><strong>Category</strong>{{$offer->car_category}}</span>
                   					<span class="location"><strong>Price</strong>${{$offer->car_price}}</span>
+									  <span class="location"><strong>Provider</strong>${{$offer->phone}}</span>
                                     <span class="status active"><strong>Status</strong>Confirmed</span>
 								</td>
 								<td class="product-category"><span class="categories">{{$offer->name}}</span></td>

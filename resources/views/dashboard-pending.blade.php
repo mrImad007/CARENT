@@ -65,6 +65,7 @@
 										<span class="add-id"><strong>Power</strong> {{$offer->car_power}} HP {{$offer->id}}</span>
 										<span class="location"><strong>Category</strong>{{$offer->car_category}}</span>
 										<span class="location"><strong>Price</strong>${{$offer->car_price}}</span>
+										<span class="location"><strong>client</strong>{{$offer->phone}}</span>
 										<span class="status active"><strong>Status</strong>Pending</span>
 									</td>
 									<td class="product-category"><span class="categories">{{$offer->name}}</span></td>
@@ -121,6 +122,7 @@
 									<span class="add-id"><strong>Power</strong> {{$rent->car_power}} HP {{$rent->id}}</span>
 									<span class="location"><strong>Category</strong>{{$rent->car_category}}</span>
                   					<span class="location"><strong>Price</strong>${{$rent->car_price}}</span>
+									<span class="location"><strong>client</strong>{{$rent->phone}}</span>
                                     <span class="status active"><strong>Status</strong>Pending</span>
 								</td>
 								<td class="product-category"><span class="categories">{{$rent->name}}</span></td>

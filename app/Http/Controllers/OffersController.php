@@ -43,9 +43,10 @@ class OffersController extends Controller
         
         $offers = DB::table('offers')
                 ->join('commands', 'commands.offer_id', '=', 'offers.id')
+                ->join('users', 'commands.user_id', '=', 'users.id')
                 ->join('typeoffers','typeoffers.id','=','offers.typeoffers_id')
                 ->where('offers.user_id', $id)
-                ->select('offers.*','typeoffers.*')
+                ->select('offers.*','typeoffers.*','users.phone')
                 ->where('commands.status', 'accepted')
                 ->get();
 
@@ -60,6 +61,7 @@ class OffersController extends Controller
         
         $offers = DB::table('offers')
                 ->join('commands', 'commands.offer_id', '=', 'offers.id')
+                ->join('users', 'commands.user_id', '=', 'users.id')
                 ->join('typeoffers','typeoffers.id','=','offers.typeoffers_id')
                 ->where('offers.user_id', $id)
                 ->where('commands.status', 'Pending')
@@ -68,6 +70,7 @@ class OffersController extends Controller
 
         $rents = DB::table('offers')
                 ->join('commands', 'commands.offer_id', '=', 'offers.id')
+                ->join('users', 'commands.user_id', '=', 'users.id')
                 ->join('typeoffers','typeoffers.id','=','offers.typeoffers_id')
                 ->where('offers.user_id', $id)
                 ->where('commands.status', 'Pending')

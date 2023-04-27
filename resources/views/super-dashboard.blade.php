@@ -413,6 +413,29 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="transform  hover:scale-105 transition duration-300 shadow-xl rounded-lg col-span-12 sm:col-span-6 xl:col-span-3 intro-y bg-white">
+                                        <div class="p-5">
+                                            <div class="flex justify-between">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7 text-pink-600"
+                                                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+                                                    <path stroke-linecap="round" stroke-linejoin="round"
+                                                        stroke-width="2"
+                                                        d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+                                                </svg>
+                                                
+                                            </div>
+                                            <div class="ml-2 w-full flex-1">
+                                                <div>
+                                                    <div class="mt-3 text-3xl font-bold leading-8">{{count($confirmed)}}</div>
+
+                                                    <div class="mt-1 text-base text-gray-600">Confirmed commands</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-span-12 mt-5">

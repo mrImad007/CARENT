@@ -16,11 +16,20 @@
 	</div>
 	<!-- Container End -->
 </section>
-<!--==================================
-=            Blog Section            =
-===================================-->
-
 <section class="blog section">
+	<div class="advance-search">
+		<form method="GET" action="/search">
+			<div class="form-row" style="display: flex; justify-content: space-around">
+				<div class="form-group col-md-4">
+					<input type="text" name="search" class="form-control" id="inputtext4" placeholder="What are you looking for" style="width: 550px">
+				</div>
+				<div class="form-group col-md-2">
+					
+					<button type="submit" class="btn btn-primary">Search Now</button>
+				</div>
+			</div>
+		</form>
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-10 offset-md-1 col-lg-9 offset-lg-0">
@@ -45,8 +54,6 @@
 				<article>
 					<div class="post-slider owl-carousel owl-theme">
 					  <div class="item"><img src="./images/blog/post-2.jpg" alt="Slider-Img-01"></div>
-					  <div class="item"><img src="./images/blog/post-2.jpg" alt="Slider-Img-02"></div>
-					  <div class="item"><img src="./images/blog/post-2.jpg" alt="Slider-Img-03"></div>
 					</div>
 					<h3>Donec id dolor in erat imperdiet.</h3>
 					<ul class="list-inline">
@@ -118,80 +125,6 @@
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores iusto tempore voluptatum blanditiis impedit alias magni ullam facilis perspiciatis magnam!</p>
 					<a href="" class="btn btn-transparent">Read More</a>
 				</article>
-				<!-- Pagination -->
-				<nav aria-label="Page navigation example">
-				  <ul class="pagination">
-				    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-				    <li class="page-item"><a class="page-link" href="#">2</a></li>
-				    <li class="page-item"><a class="page-link" href="#">3</a></li>
-				    <li class="page-item">
-				      <a class="page-link" href="#" aria-label="Next">
-				        <span aria-hidden="true"><i class="fa fa-angle-right"></i></span>
-				        <span class="sr-only">Next</span>
-				      </a>
-				    </li>
-				  </ul>
-				</nav>
-			</div>
-			<div class="col-md-10 offset-md-1 col-lg-3 offset-lg-0">
-				<div class="sidebar">
-					<!-- Search Widget -->
-					<div class="widget search p-0">
-						<div class="input-group">
-						    <input type="text" class="form-control" id="expire" placeholder="Search...">
-						    <span class="input-group-addon"><i class="fa fa-search"></i></span>
-					    </div>
-					</div>
-					<!-- Category Widget -->
-					<div class="widget category">
-						<!-- Widget Header -->
-						<h5 class="widget-header">Categories</h5>
-						<ul class="category-list">
-							<li><a href="">Appearel <span class="float-right">(2)</span></a></li>
-							<li><a href="">Accesories <span class="float-right">(5)</span></a></li>
-							<li><a href="">Business<span class="float-right">(7)</span></a></li>
-							<li><a href="">Entertaiment<span class="float-right">(3)</span></a></li>
-							<li><a href="">Education<span class="float-right">(9)</span></a></li>
-						</ul>
-					</div>
-					<!-- Store Widget -->
-					<div class="widget related-store">
-						<!-- Widget Header -->
-						<h5 class="widget-header">Related Store</h5>
-						<ul class="store-list md list-inline">
-							<li class="list-inline-item">
-								<a href=""><img src="./images/popular-offer/populer-offer-02.png" alt="store-image"></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><img src="./images/popular-offer/populer-offer-03.png" alt="store-image"></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><img src="./images/popular-offer/populer-offer-04.png" alt="store-image"></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><img src="./images/popular-offer/populer-offer-05.png" alt="store-image"></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><img src="./images/popular-offer/populer-offer-06.png" alt="store-image"></a>
-							</li>
-							<li class="list-inline-item">
-								<a href=""><img src="./images/popular-offer/populer-offer-07.png" alt="store-image"></a>
-							</li>
-						</ul>
-					</div>
-					<!-- Archive Widget -->
-					<div class="widget archive">
-						<!-- Widget Header -->
-						<h5 class="widget-header">Archives</h5>
-						<ul class="archive-list">
-							<li><a href="">January 2017</a></li>
-							<li><a href="">February 2017</a></li>
-							<li><a href="">March 2017</a></li>
-							<li><a href="">April 2017</a></li>
-							<li><a href="">May 2017</a></li>
-						</ul>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>

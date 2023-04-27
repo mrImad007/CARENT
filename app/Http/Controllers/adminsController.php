@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\command;
 use App\Models\offers;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -12,13 +13,15 @@ class adminsController extends Controller
     public function SuperDashboard(){
 
         $offers = offers::all();
+        $comfirmed = command::where('status','=','accepted')->get();
         $providers = User::where('role','=',1)->get();
         $users = User::where('role','=',0)->get();
 
         return view('super-dashboard',[
             'offers' => $offers,
             'providers' => $providers,
-            'users' => $users
+            'users' => $users,
+            'confirmed' => $comfirmed
         ]);
     }
 

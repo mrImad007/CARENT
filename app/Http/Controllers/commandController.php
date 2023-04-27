@@ -26,8 +26,6 @@ class commandController extends Controller
 
     public function createRentCommand(Request $request){
 
-        // $id  = request()->query('id');
-
         $formField = [
             'offer_id' => $request->id,
             'user_id' => auth()->user()->id,
